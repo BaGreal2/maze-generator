@@ -1,0 +1,103 @@
+.default {
+	width: calc(100% / var(--cell-amount));
+	height: calc(100% / var(--cell-amount));
+	border: 1px solid var(--dark-blue);
+	border-radius: 10%;
+	position: relative;
+	transition: all 100ms ease-in-out;
+}
+
+.beforeDefault {
+	content: ' ';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 5;
+	transform: translate(-50%, -50%);
+	animation-timing-function: ease-in-out;
+}
+
+.visited {
+	background-color: #65d0e4;
+	animation-name: cellVisitedExpansion;
+}
+
+@keyframes cellVisitedExpansion {
+	0% {
+		width: 0;
+		height: 0;
+		border-radius: 100%;
+		background-color: #414a85;
+	}
+	40% {
+		width: 100%;
+		height: 100%;
+		border-radius: 100%;
+		background-color: #538cde;
+	}
+	60% {
+		width: 125%;
+		height: 125%;
+		border-radius: 10%;
+		background-color: #6be1bd;
+	}
+	100% {
+		width: 100%;
+		height: 100%;
+		background-color: #65d0e4;
+	}
+}
+
+.start {
+	border: 3px solid rgb(136, 229, 161);
+}
+
+.end {
+	border: 3px solid rgb(233, 76, 104);
+}
+
+.showing {
+	background-color: #efe77e;
+	animation-name: cellShowingExpansion;
+}
+
+@keyframes cellShowingExpansion {
+	0% {
+		width: 0;
+		height: 0;
+		border-radius: 100%;
+		background-color: #cda444;
+	}
+	40% {
+		width: 100%;
+		height: 100%;
+		border-radius: 100%;
+		background-color: #e8db4a;
+	}
+	60% {
+		width: 125%;
+		height: 125%;
+		border-radius: 10%;
+		background-color: #c6eb85;
+	}
+	100% {
+		width: 100%;
+		height: 100%;
+		background-color: #efe77e;
+	}
+}
+
+.noTopBorder {
+	border-top: 0px solid transparent;
+}
+.noRightBorder {
+	border-right: 0px solid transparent;
+}
+.noBottomBorder {
+	border-bottom: 0px solid transparent;
+}
+.noLeftBorder {
+	border-left: 0px solid transparent;
+}

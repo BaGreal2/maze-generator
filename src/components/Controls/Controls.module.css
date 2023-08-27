@@ -1,0 +1,205 @@
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	appearance: none;
+	margin: 0;
+}
+
+.controlsWrapper {
+	display: flex;
+	justify-content: center;
+	margin-top: 100px;
+	margin-bottom: 20px;
+	color: var(--dark-blue);
+	width: 85vw;
+	max-width: 600px;
+	flex-wrap: wrap;
+	gap: 20px;
+	z-index: 10;
+}
+
+.numberControls {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 85px;
+}
+.numberInput {
+	width: 35px;
+	height: 35px;
+	background-color: var(--light-blue);
+	border: none;
+	text-align: center;
+	border-radius: 3px;
+
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	&:hover {
+		outline: none;
+	}
+	&:focus {
+		outline: none;
+	}
+}
+
+.fieldControls {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 380px;
+	gap: 25px;
+}
+
+.buttonWrapper {
+	position: relative;
+	width: 110px;
+	height: 35px;
+	display: flex;
+	cursor: pointer;
+	transition: all 200ms ease;
+
+	&:hover {
+		transform: scale(1.1);
+	}
+
+	&:hover > .fieldControlButton {
+		border-bottom-left-radius: 0;
+	}
+	&:hover > .buttonDropdown {
+		border-bottom-right-radius: 0;
+	}
+}
+
+/*todo: get this work */
+.dropdown.show ~ .fieldControlButton {
+	border-bottom-left-radius: 0;
+}
+
+.dropdown.show ~ .buttonDropdown {
+	border-bottom-right-radius: 0;
+}
+
+.fieldControlButton {
+	width: 75%;
+	height: 35px;
+	background-color: var(--light-blue);
+	border: none;
+	border-radius: 3px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	transition: all 200ms ease;
+	z-index: 15;
+}
+
+.buttonDropdown {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 25%;
+	height: 35px;
+	border-radius: 3px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	background-color: var(--light-blue);
+	transition: all 200ms ease;
+	z-index: 15;
+}
+
+.buttonDropdown::before {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	content: ' ';
+	width: 1px;
+	height: 20px;
+	background-color: var(--dark-blue);
+	border-radius: 10px;
+	opacity: 0.5;
+}
+
+.clearButton {
+	width: 110px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.expandMore {
+	width: 85%;
+
+	&:hover {
+		animation: vertical-shaking 200ms ease-in-out;
+	}
+}
+
+.dropdown {
+	display: none;
+	position: absolute;
+	top: 35px;
+	width: 110px;
+	height: auto;
+	background-color: var(--light-blue);
+	z-index: 10;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	transition: all 200ms ease-in-out;
+}
+
+.show {
+	display: flex;
+	animation: growDown 300ms ease-in-out forwards;
+	transform-origin: top center;
+}
+
+.dropdownItem {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 30px;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+}
+
+@media (max-width: 768px) {
+	.fieldControls {
+		justify-content: center;
+	}
+}
+
+@keyframes growDown {
+	0% {
+		transform: scaleY(0);
+	}
+	80% {
+		transform: scaleY(1.1);
+	}
+	100% {
+		transform: scaleY(1);
+	}
+}
+
+@keyframes vertical-shaking {
+	0% {
+		transform: translateY(0);
+	}
+	25% {
+		transform: translateY(3px);
+	}
+	50% {
+		transform: translateY(-3px);
+	}
+	75% {
+		transform: translateY(3px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
