@@ -1,4 +1,4 @@
-import Cell from '../components/MazeField/cell.class';
+import { Cell } from '.';
 
 export class Wall {
 	constructor(

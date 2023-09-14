@@ -1,6 +1,6 @@
+import { Cell } from '../../helpers';
 import MazeCell from './MazeCell';
 import styles from './MazeField.module.css';
-import Cell from './cell.class';
 
 interface MazeFieldProps {
 	size: number;

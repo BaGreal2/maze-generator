@@ -1,4 +1,4 @@
-import Cell from '../components/MazeField/cell.class';
+import { Cell } from '.';
 
 export const removeWallsBetween = (firstCell: Cell, secondCell: Cell) => {
 	if (secondCell.x - firstCell.x === -1) {

@@ -7,8 +7,8 @@ import {
 } from '../../algorithms';
 import ExpandMoreIcon from '../../assets/icons/expand_more_FILL0_wght400_GRAD0_opsz24.svg';
 import { mazeFunction } from '../../types/mazeFunction.type';
-import Cell from '../MazeField/cell.class';
 import styles from './Controls.module.css';
+import { Cell } from '../../helpers';
 
 interface ControlsProps {
 	size: number;

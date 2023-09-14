@@ -1,6 +1,5 @@
 import PriorityQueue from 'ts-priority-queue';
-import Cell from '../components/MazeField/cell.class';
-import { getNeighbors, getReachableNeighbors, sleep } from '../helpers';
+import { Cell, getNeighbors, getReachableNeighbors, sleep } from '../helpers';
 import { mazeFunction } from '../types/mazeFunction.type';
 
 const h = (cell1: Cell, cell2: Cell) =>

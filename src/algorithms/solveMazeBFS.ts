@@ -1,5 +1,4 @@
-import Cell from '../components/MazeField/cell.class';
-import { getNeighbors, getReachableNeighbors, sleep } from '../helpers';
+import { Cell, getNeighbors, getReachableNeighbors, sleep } from '../helpers';
 import { mazeFunction } from '../types/mazeFunction.type';
 
 export const solveMazeBFS: mazeFunction<Cell[]> = async (

@@ -1,6 +1,6 @@
-import Position from '../../types/position.type';
+import Position from '../types/position.type';
 
-class Cell {
+export class Cell {
 	private _isVisited: boolean;
 	private _isStart: boolean;
 	private _isEnd: boolean;
@@ -100,5 +100,3 @@ class Cell {
 		this._walls = [true, true, true, true];
 	}
 }
-
-export default Cell;

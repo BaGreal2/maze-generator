@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { generateField, sleep } from '../../helpers';
+import { Cell, generateField, sleep } from '../../helpers';
 import { mazeFunction } from '../../types/mazeFunction.type';
 import Controls from '../Controls/Controls';
 import MazeField from '../MazeField/MazeField';
-import Cell from '../MazeField/cell.class';
 import styles from './MazeWrapper.module.css';
 
 const MazeWrapper = () => {

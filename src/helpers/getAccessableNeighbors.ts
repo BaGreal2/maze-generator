@@ -1,4 +1,4 @@
-import Cell from '../components/MazeField/cell.class';
+import { Cell } from '.';
 import Position from '../types/position.type';
 
 export const getAccessableNeighbors = (

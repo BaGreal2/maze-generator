@@ -1,5 +1,5 @@
-import Cell from '../components/MazeField/cell.class';
 import {
+	Cell,
 	getNeighbors,
 	getRandomIndex,
 	removeWallsBetween,

@@ -1,4 +1,4 @@
-import Cell from '../cell.class';
+import { Cell } from '../../../helpers';
 import styles from './MazeCell.module.css';
 
 interface MazeCellProps {

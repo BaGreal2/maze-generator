@@ -1,4 +1,4 @@
-import Cell from '../components/MazeField/cell.class';
+import { Cell } from '.';
 
 export const generateField = (size: number) => {
 	const field: Cell[][] = new Array(size);
