@@ -30,7 +30,16 @@ const MazeWrapper = () => {
 		const fieldCopy = [...field];
 		for (let i = 0; i < size; i++) {
 			for (let j = 0; j < size; j++) {
-				fieldCopy[i][j].setUnisited();
+				fieldCopy[i][j].setUnvisited();
+			}
+		}
+		setField([...fieldCopy]);
+	};
+	const unshowAllCells = () => {
+		const fieldCopy = [...field];
+		for (let i = 0; i < size; i++) {
+			for (let j = 0; j < size; j++) {
+				fieldCopy[i][j].setUnshowing();
 			}
 		}
 		setField([...fieldCopy]);
@@ -62,6 +71,8 @@ const MazeWrapper = () => {
 
 	const onSolveMaze = (mazeSolvingFunction: mazeFunction<Cell[]>) => {
 		return async () => {
+			unvisitAllCells();
+			unshowAllCells();
 			const path = await mazeSolvingFunction(field, setField, size, delay);
 			await showPath(path);
 		};

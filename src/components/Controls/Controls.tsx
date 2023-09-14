@@ -1,5 +1,10 @@
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
-import { generateMazeDFS, solveMazeBFS } from '../../algorithms';
+import {
+	generateMazeDFS,
+	generateMazeKruskal,
+	solveMazeAStar,
+	solveMazeBFS,
+} from '../../algorithms';
 import ExpandMoreIcon from '../../assets/icons/expand_more_FILL0_wght400_GRAD0_opsz24.svg';
 import { mazeFunction } from '../../types/mazeFunction.type';
 import Cell from '../MazeField/cell.class';
@@ -26,13 +31,18 @@ const Controls = ({
 }: ControlsProps) => {
 	const [isGenerateDropodownOpen, setGenerateDropdownOpen] = useState(false);
 	const [isSolveDropodownOpen, setSolveDropdownOpen] = useState(false);
-	const [currGenerationAlgorithm, setCurrGenerationAlgorithm] =
-		useState<mazeFunction<void>>(generateMazeDFS);
-	const [currSolvingAlgorithm, setCurrSolvingAlgorithm] =
-		useState<mazeFunction<Cell[]>>(solveMazeBFS);
+	const [currGenerationAlgorithmIndex, setCurrGenerationAlgorithmIndex] =
+		useState(0);
+	const [currSolvingAlgorithmIndex, setCurrSolvingAlgorithmIndex] = useState(0);
 
-	const generationAlgorithms = [{ function: generateMazeDFS, name: 'DFS' }];
-	const solvingAlgorithms = [{ function: solveMazeBFS, name: 'BFS' }];
+	const generationAlgorithms = [
+		{ function: generateMazeDFS, name: 'DFS', index: 0 },
+		{ function: generateMazeKruskal, name: 'Kruskal', index: 1 },
+	];
+	const solvingAlgorithms = [
+		{ function: solveMazeBFS, name: 'BFS', index: 0 },
+		{ function: solveMazeAStar, name: 'A*', index: 1 },
+	];
 
 	const onSizeChange = (event: ChangeEvent<HTMLInputElement>) => {
 		event.preventDefault();
@@ -55,9 +65,14 @@ const Controls = ({
 		<div className={styles.controlsWrapper}>
 			<div className={styles.fieldControls}>
 				<div className={styles.buttonWrapper}>
+					<div className={styles.currentAlgorithm}>
+						{generationAlgorithms[currGenerationAlgorithmIndex].name}
+					</div>
 					<button
 						className={styles.fieldControlButton}
-						onClick={onCreateMaze(currGenerationAlgorithm)}
+						onClick={onCreateMaze(
+							generationAlgorithms[currGenerationAlgorithmIndex].function,
+						)}
 					>
 						Generate
 					</button>
@@ -76,10 +91,11 @@ const Controls = ({
 							isGenerateDropodownOpen ? styles.show : ''
 						}`}
 					>
-						{generationAlgorithms.map((algorithm) => (
+						{generationAlgorithms.map((algorithm, i) => (
 							<div
 								className={styles.dropdownItem}
-								onClick={() => setCurrGenerationAlgorithm(algorithm.function)}
+								onClick={() => setCurrGenerationAlgorithmIndex(algorithm.index)}
+								key={i}
 							>
 								{algorithm.name}
 							</div>
@@ -87,9 +103,14 @@ const Controls = ({
 					</div>
 				</div>
 				<div className={styles.buttonWrapper}>
+					<div className={styles.currentAlgorithm}>
+						{solvingAlgorithms[currSolvingAlgorithmIndex].name}
+					</div>
 					<button
 						className={styles.fieldControlButton}
-						onClick={onSolveMaze(currSolvingAlgorithm)}
+						onClick={onSolveMaze(
+							solvingAlgorithms[currSolvingAlgorithmIndex].function,
+						)}
 					>
 						Solve
 					</button>
@@ -108,10 +129,11 @@ const Controls = ({
 							isSolveDropodownOpen ? styles.show : ''
 						}`}
 					>
-						{solvingAlgorithms.map((algorithm) => (
+						{solvingAlgorithms.map((algorithm, i) => (
 							<div
 								className={styles.dropdownItem}
-								onClick={() => setCurrSolvingAlgorithm(algorithm.function)}
+								onClick={() => setCurrSolvingAlgorithmIndex(algorithm.index)}
+								key={i}
 							>
 								{algorithm.name}
 							</div>

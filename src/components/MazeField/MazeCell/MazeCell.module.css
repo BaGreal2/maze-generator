@@ -1,20 +1,24 @@
 .default {
+	position: relative;
+	z-index: 10;
 	width: calc(100% / var(--cell-amount));
 	height: calc(100% / var(--cell-amount));
-	border: 1px solid var(--dark-blue);
+	border: 1px solid var(--light-blue);
+	/* border: 1px solid black; */
 	border-radius: 10%;
-	position: relative;
+	opacity: 1;
 	transition: all 100ms ease-in-out;
 }
 
 .beforeDefault {
 	content: ' ';
-	width: 100%;
-	height: 100%;
+	width: 95%;
+	height: 95%;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	z-index: 5;
+	border-radius: 10%;
 	transform: translate(-50%, -50%);
 	animation-timing-function: ease-in-out;
 }
@@ -22,6 +26,8 @@
 .visited {
 	background-color: #65d0e4;
 	animation-name: cellVisitedExpansion;
+	box-shadow: 0px 0px 5px 2px var(--mild-blue);
+	z-index: 5;
 }
 
 @keyframes cellVisitedExpansion {
@@ -32,8 +38,8 @@
 		background-color: #414a85;
 	}
 	40% {
-		width: 100%;
-		height: 100%;
+		width: 95%;
+		height: 95%;
 		border-radius: 100%;
 		background-color: #538cde;
 	}
@@ -44,22 +50,26 @@
 		background-color: #6be1bd;
 	}
 	100% {
-		width: 100%;
-		height: 100%;
+		width: 95%;
+		height: 95%;
 		background-color: #65d0e4;
+		border: 1px solid black;
 	}
 }
 
 .start {
 	border: 3px solid rgb(136, 229, 161);
+	box-shadow: 0px 0px 8px 3px rgb(136, 229, 161);
 }
 
 .end {
 	border: 3px solid rgb(233, 76, 104);
+	box-shadow: 0px 0px 8px 3px rgb(233, 76, 104);
 }
 
 .showing {
 	background-color: #efe77e;
+	box-shadow: 0px 0px 5px 2px #cda444;
 	animation-name: cellShowingExpansion;
 }
 
@@ -71,8 +81,8 @@
 		background-color: #cda444;
 	}
 	40% {
-		width: 100%;
-		height: 100%;
+		width: 95%;
+		height: 95%;
 		border-radius: 100%;
 		background-color: #e8db4a;
 	}
@@ -83,8 +93,8 @@
 		background-color: #c6eb85;
 	}
 	100% {
-		width: 100%;
-		height: 100%;
+		width: 95%;
+		height: 95%;
 		background-color: #efe77e;
 	}
 }

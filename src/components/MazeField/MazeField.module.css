@@ -1,4 +1,6 @@
 .field {
+	position: relative;
+	z-index: 10;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
@@ -6,8 +8,8 @@
 	width: 90vw;
 	max-width: 600px;
 	aspect-ratio: 1;
-	background-color: var(--mild-blue);
-	box-shadow: 0px 0px 265px 83px var(--mild-blue);
+	/* background-color: var(--mild-blue); */
+	/* box-shadow: 0px 0px 265px 83px var(--mild-blue); */
 	/* background-color: rgba(53, 146, 189, 0.6); */
 	/* box-shadow: 0px 0px 265px 83px rgba(53, 146, 189, 0.6); */
 }

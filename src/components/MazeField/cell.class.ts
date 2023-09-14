@@ -42,7 +42,7 @@ class Cell {
 		this._isVisited = true;
 	}
 
-	public setUnisited() {
+	public setUnvisited() {
 		this._isVisited = false;
 	}
 
@@ -58,6 +58,9 @@ class Cell {
 
 	public setShowing() {
 		this._isShowing = true;
+	}
+	public setUnshowing() {
+		this._isShowing = false;
 	}
 
 	public get isVisited() {

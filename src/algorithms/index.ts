@@ -1,3 +1,4 @@
 export { generateMazeDFS } from './generateMazeDFS';
+export { generateMazeKruskal } from './generateMazeKruskal';
 export { solveMazeBFS } from './solveMazeBFS';
-export { solveMazeRightWall } from './solveMazeRightWall';
+export { solveMazeAStar } from './solveMazeAStar';
