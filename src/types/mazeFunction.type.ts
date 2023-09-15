@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import Cell from '../components/MazeField/cell.class';
+import { Cell } from '../helpers';
 
 export type mazeFunction<T> = (
 	field: Cell[][],
